@@ -1,12 +1,14 @@
 # Lambda Calculus
 
 ## General stuff
-- Function application is left associative $\lambda x. f x y = \lambda x.\ ((f x) y)$
+- Function application is left associative $\lambda x.\ f\ x\ y = \lambda x.\ ((f\ x)\ y)$
 - untyped lambda calculus is turing complete
 
 ### Primitive Operations
+
 #### Let
-    - let $x = t_1$ in $t_2$ wird zu $(\lambda x.\,t_2)\,t_1$
+- let $x = t_1$ in $t_2$ wird zu $(\lambda x.\,t_2)\,t_1$
+
 #### Church Numbers
 - $c_0 = \lambda s.\,\lambda z.z$
 - $c_1 = \lambda s.\,\lambda z.s\,z$
@@ -20,13 +22,16 @@
     - Addition: $plus$
     - Multiplikation: $times$
     - Potenzieren: $exp$
+
 #### Boolean Values
 - $True$: $\ c_{true} = \lambda t.\ \lambda f.\ t$
 - $False$: $\ c_{false} = \lambda t.\ \lambda f.\,f$
 
 ## Equivalences
+
 ### $\alpha$-equivalence
 Two terms $t_1$ and $t_2$ are $\alpha$-equivalent $t_1 \stackrel{\alpha}{=} t_2$ if $t_1$ and $t_2$ can be transformed into each other just by consistent renaming of the bound variables.
+
 #### Example
 $$
 \lambda x. x \stackrel{\alpha}{=} \lambda y. y \\
@@ -66,12 +71,16 @@ $Y = \lambda f.\,(\lambda x.\,f\,(x\,x))\,(\lambda x.\,f\,(x\,x))$ is called the
 $Y\ G$ is the fixpoint of $G$.
 
 ### Evaluation Strategies
+
 #### Full $\beta$-Reduction
 Every Redex can be reduced at any time.
+
 #### Normal Order
 The leftmost outer redex gets reduced.
+
 #### Call by Name (CBN)
 Reduce the leftmost outer Redex if not surrounded by a lambda.
+
 ##### Example
 $$
 (\lambda \textcolor{green}{y}.\ (\lambda x.\ \textcolor{green}{y}\ (\lambda z.\ z)\ x))\ \textcolor{red}{((\lambda x.\ x)\ (\lambda y.\ y))} \\
@@ -81,6 +90,7 @@ $$
 #### Call by Value (CBV)
 Reduce the leftmost Redex if not surrounded by a lambda and the argument is a value. A value means
 the term can not be further reduced.
+
 ##### Example
 $$
 (\lambda y.\ (\lambda x.\ y\ (\lambda z.\ z)\ x))\ ((\lambda \textcolor{green}{x.\ x})\ \textcolor{red}{(\lambda y.\ y)}) \\
@@ -89,3 +99,4 @@ $$
 $$
 
 Call by Name and Call by Value may not reduce to the Normal Form! Call by Name terminates more often than Call by Value.
+

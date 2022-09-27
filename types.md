@@ -46,6 +46,7 @@ $$APP\;\;\frac{\Gamma \, \vdash \, t_1 \, : \, \tau_2 \rightarrow \tau \, \, \, 
 - **Polymorphe Funktionen**
     - Verhalten hängt nicht vom konkreten Typ ab
     - z.B. Operationen auf Containern, wie z.B. Listen
+
 ### Typschema
 - Für $n \in \mathbb{N}$ heißt $\forall \alpha_1. \dots \forall \alpha_n.\tau$ *Typschema* (Kürzel $\phi$)
 - Es bindet freie Typvariablen $\alpha_1, \dots, \alpha_n$ in $\tau$
