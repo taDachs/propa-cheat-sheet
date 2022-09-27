@@ -1,6 +1,7 @@
 # Prolog
 
 ## Generelles Zeug
+Prolog ist nicht vollständig da die nächste Regel deterministisch gewählt wird, daher können Endlosschleifen entstehen und keine Lösung gefunden werden obwohl sie existiert.
 ```prolog
 % klein geschriebene Namen sind Atome
 mag(ich, dich). % nein tu ich nicht
@@ -24,6 +25,9 @@ foo(X, Y) :- generator(X, Y), tester(Y).
 
 % listen sind so wie in haskell
 foo([H|T]) :- ...
+
+% weitere listen sachen
+[1,2,3|[4,5,6,7]] = [1,2,3,4,5,6,7]
 
 % Arithmetik ist komisch. 2 - 1 ist ein Term, keine Zahl!
 2 - 1 \= 1

@@ -42,3 +42,4 @@ $\;\;\;\;\;\;\;\;\texttt{then unify(C'}\cup\{\theta_l^1=\theta_r^1,...,\theta_l^
 $\;\;\;\;\texttt{else \textbf{fail}}$
 
 $\texttt{unify(C)}$ terminiert und gibt **mgu** für C zurück, falls C unifizierbar, ansonsten **fail**.
+

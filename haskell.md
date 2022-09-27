@@ -28,6 +28,13 @@ foo x = case x of
 -- alias for pattern matching
 foo l@(x:xs) = l == (x:xs) -- returns true
 
+-- combine two functions
+f :: a -> b
+g :: b -> c
+
+h :: a -> c
+h = f . g
+
 data Tree a = Leaf
               | Node (Tree a) a (Tree a)
               deriving (Show)
@@ -53,6 +60,10 @@ instance Eq Bool where
 
 ## Important functions
 ```haskell
+-- maps a function to a list
+map :: (a -> b) -> [a] -> [b]
+-- filters a list with a predicate
+filter :: (a -> Bool) -> [a] -> [a]
 -- fold from left
 foldl :: Foldable t => (b -> a -> b) -> b -> t a -> b
 -- fold from right
@@ -67,5 +78,15 @@ iterate :: (a -> a) -> a -> [a]
 repeat :: a -> [a]
 -- applies function until the predicate is true
 until :: (a -> Bool) -> (a -> a) -> a -> a
+-- returns true if the predicate is true for at least one element
+any :: Foldable t => (a -> Bool) -> t a -> Bool
+-- return true if the predicate is true for all elements
+all :: Foldable t => (a -> Bool) -> t a -> Bool
+-- flips the parameters of a function
+flip :: (a -> b -> c) -> b -> a -> c
+-- combines two lists to a list of tuples
+zip :: [a] -> [b] -> [(a, b)]
+-- combines two lists with the given function
+zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
 ```
 
