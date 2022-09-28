@@ -25,6 +25,8 @@ foo x = case x of
 -- list comprehension is not as good as in python
 [foo x | x <- [1..420], x `mod` 2 == 0]
 
+[0..5] == [0,1,2,3,4,5]
+
 -- alias for pattern matching
 foo l@(x:xs) = l == (x:xs) -- returns true
 
