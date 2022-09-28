@@ -35,6 +35,9 @@ Two terms $t_1$ and $t_2$ are $\alpha$-equivalent $t_1 \stackrel{\alpha}{=} t_2$
 #### Example
 $$
 \lambda x. x \stackrel{\alpha}{=} \lambda y. y \\
+$$
+
+$$
 \lambda x. (\lambda z. f (\lambda y. z y) x) \stackrel{\alpha}{\neq} \lambda z. (\lambda z. f (\lambda y. z \ y) z)
 $$
 
@@ -45,6 +48,9 @@ if $x$ is not a free variable of $f$.
 #### Example
 $$
 \lambda x.f\,z\,x \stackrel{\eta}{=} f\,z \\
+$$
+
+$$
 \lambda x.g\,x\,x \stackrel{\eta}{\neq} g\,x
 $$
 
@@ -84,6 +90,9 @@ Reduce the leftmost outer Redex if not surrounded by a lambda.
 ##### Example
 $$
 (\lambda \textcolor{green}{y}.\ (\lambda x.\ \textcolor{green}{y}\ (\lambda z.\ z)\ x))\ \textcolor{red}{((\lambda x.\ x)\ (\lambda y.\ y))} \\
+$$
+
+$$
 \Rightarrow (\lambda x.\ ((\lambda \textcolor{green}{x.\ x})\ \textcolor{red}{(\lambda y.\ y)})\ (\lambda z.\ z)\ x) \nRightarrow
 $$
 
@@ -94,7 +103,13 @@ the term can not be further reduced.
 ##### Example
 $$
 (\lambda y.\ (\lambda x.\ y\ (\lambda z.\ z)\ x))\ ((\lambda \textcolor{green}{x.\ x})\ \textcolor{red}{(\lambda y.\ y)}) \\
+$$
+
+$$
 \Rightarrow (\lambda \textcolor{green}{y}.\ (\lambda x.\ \textcolor{green}{y}\ (\lambda z.\ z)\ x))\ \textcolor{red}{(\lambda y.\ y)} \\
+$$
+
+$$
 \Rightarrow (\lambda x.\ (\lambda \textcolor{green}{y}.\ \textcolor{green}{y})\ \textcolor{red}{(\lambda z.\ z)}\ x) \nRightarrow
 $$
 
