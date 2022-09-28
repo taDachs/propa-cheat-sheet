@@ -38,9 +38,9 @@
 
 ### General
 
-```
-// this list partly is stolen from some guy on discord, but I forgot which one
-// types
+```nasm
+; this list partly is stolen from some guy on discord, but I forgot which one
+; types
 i -> int
 l -> long
 s -> short
@@ -50,72 +50,73 @@ f -> float
 d -> double
 a -> reference
 
-// load constants on the stack
-aconst_null // null object
-dconst_0 // double 0
-dconst_1 // double 1
-fconst_0 ... fconst_2 // float 0 to 2
-iconst_0 ... iconst_5 // integer 0 to 5
+; load constants on the stack
+aconst_null ; null object
+dconst_0 ; double 0
+dconst_1 ; double 1
+fconst_0 ... fconst_2 ; float 0 to 2
+iconst_0 ... iconst_5 ; integer 0 to 5
 
-// push immediates
-bipush i // push signed byte i on the stack
-sipush i // push signed short i on the stack
+; push immediates
+bipush i ; push signed byte i on the stack
+sipush i ; push signed short i on the stack
 
-// variables (X should be replaced by a type, for example i (integer))
-// there exists Xload_i for i in [0, 3] to save a few bytes
-Xload i // load local variable i (is a number)
-Xstore i // store local variable i
+; variables (X should be replaced by a type, for example i (integer))
+; there exists Xload_i for i in [0, 3] to save a few bytes
+Xload i ; load local variable i (is a number)
+Xstore i ; store local variable i
 
-// return from function
-return // void return
-Xreturn // return value of type X
+; return from function
+return ; void return
+Xreturn ; return value of type X
 
-// conditional jumps
-if_icmpeq label // jump if ints are equal
-if_icmpge label // jump if first int is >=
-if_icmpgt label // jump if first int is >
-if_icmple label // jump if first int is <
-if_icmplt label // jump if first int is <=
+; conditional jumps
+if_icmpeq label ; jump if ints are equal
+if_icmpge label ; jump if first int is >=
+if_icmpgt label ; jump if first int is >
+if_icmple label ; jump if first int is <
+if_icmplt label ; jump if first int is <=
 
-ifeq label // jump if = zero
-ifge label // jump if >= zero
-ifgt label // jump if > zero
-iflt label // jump if < zero
-ifle label // jump if <= zero
-ifne label // jump if != zero
+ifeq label ; jump if = zero
+ifge label ; jump if >= zero
+ifgt label ; jump if > zero
+iflt label ; jump if < zero
+ifle label ; jump if <= zero
+ifne label ; jump if != zero
 
-ifnull label // jump if null
-ifnonnull label // jump if not null
+ifnull label ; jump if null
+ifnonnull label ; jump if not null
 
-// Arithmetic, always operates on stack
-iinc var const // increment variable var (number) by const (immediate)
-isub // Integer subtraction
-iadd // Integer addition
-imul // Integer multiplication
-idiv // Integer division
-ineg // negate int
-ishl // shift left (arith)
-ishr // shift right (arith)
+; Arithmetic, always operates on stack
+; push left side first, then right side
+iinc var const ; increment variable var (number) by const (immediate)
+isub ; Integer subtraction, for stack top -> [1,2,3] it would be 2 - 1
+iadd ; Integer addition
+imul ; Integer multiplication
+idiv ; Integer division
+ineg ; negate int
+ishl ; shift left (arith)
+ishr ; shift right (arith)
 
-// Logic (für [i, l])
-iand // Bitwise and
-ior // Bitwise or
-ixor // Bitwise or
+; Logic (für [i, l])
+iand ; Bitwise and
+ior ; Bitwise or
+ixor ; Bitwise or
 
-// Method calls. Stack: [objref, arg1, arg2] <‐
-invokevirtual #desc // call method specified in desc
-invokespecial #desc // call constructor
-invokeinterface #desc // call method on interface
-invokestatic #desc // call static method (no objref)
+; Method calls. Stack: [objref, arg1, arg2] <‐
+invokevirtual #desc ; call method specified in desc
+invokespecial #desc ; call constructor
+invokeinterface #desc ; call method on interface
+invokestatic #desc ; call static method (no objref)
 
-// Misc
-nop // No operation
+; Misc
+nop ; No operation
 
-// Arrays
-newarray T // new array of type T
-Xaload // load type X from array [Stack: arr, index] <‐
-Xastore // store type X in array [Stack: arr, index, val] <‐
-arraylength // length of array
+; Arrays
+newarray T ; new array of type T
+Xaload ; load type X from array [Stack: arr, index] <‐
+Xastore ; store type X in array [Stack: arr, index, val] <‐
+arraylength ; length of array
 ```
 
 ### Examples

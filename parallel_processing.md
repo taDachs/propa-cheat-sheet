@@ -120,7 +120,7 @@ A_0 & \  & \
 \end{bmatrix}
 $$
 
-#### `MPI_Scatter` `MP_Gather`
+#### `MPI_Scatter` `MPI_Gather`
 
 ```cpp
 int MPI_Scatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
