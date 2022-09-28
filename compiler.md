@@ -74,8 +74,8 @@ Xreturn ; return value of type X
 if_icmpeq label ; jump if ints are equal
 if_icmpge label ; jump if first int is >=
 if_icmpgt label ; jump if first int is >
-if_icmple label ; jump if first int is <
-if_icmplt label ; jump if first int is <=
+if_icmple label ; jump if first int is <=
+if_icmplt label ; jump if first int is <
 
 ifeq label ; jump if = zero
 ifge label ; jump if >= zero
