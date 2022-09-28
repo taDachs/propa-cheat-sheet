@@ -8,5 +8,6 @@ cat prolog.md >> "full.md"
 cat unifikation.md >> "full.md"
 cat parallel_processing.md >> "full.md"
 cat java.md >> "full.md"
+cat compiler.md >> "full.md"
 
-pandoc full.md -o full.pdf
+pandoc full.md -o full.pdf --toc
