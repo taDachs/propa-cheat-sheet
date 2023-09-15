@@ -66,6 +66,8 @@ is_set(L). % Besitzt die Liste L nur unique Elemente
 
 length(L, N). % Länge N einer Liste L
 
+last(L, E). % Ist E das letzte Element der Liste L
+
 % sowas wie append kann auch als Generator verwendet werden, sofern C instanziiert ist.
 append(A, B, C) % A und B gehen durch alle Teillisten von C
 
