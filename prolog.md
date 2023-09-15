@@ -31,6 +31,9 @@ foo([H|T]) :- ...
 
 % Arithmetik ist komisch. 2 - 1 ist ein Term, keine Zahl!
 2 - 1 \= 1
+1 =< 2
+3 // 2 =:= 1
+
 
 % Um Terme auszuwerten braucht man "is"
 N1 is N - 1.
