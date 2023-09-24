@@ -88,7 +88,7 @@ all :: Foldable t => (a -> Bool) -> t a -> Bool
 flip :: (a -> b -> c) -> b -> a -> c
 -- combines two lists to a list of tuples
 zip :: [a] -> [b] -> [(a, b)]
--- combines two lists with the given function
-zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+-- splits the list into to. The first list contains n elements.
+splitAt :: Int -> [a] -> ([a], [a])
 ```
 
