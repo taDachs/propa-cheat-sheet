@@ -50,6 +50,8 @@ member(X, L). % prüft ob X in L
 
 append(A, B, C). % fügt A und B zu C zusammen.
 
+delete(Xs, E, Zs). % Zs spiegelt Xs ohne alle vorkommen von E (die mit E unifizieren) wider.
+
 prefix(P, S). % Ist P Prefix von S
 
 length(L, N). % Hat Liste L genau N Elemente
