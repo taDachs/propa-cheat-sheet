@@ -31,6 +31,9 @@ foo([H|T]) :- ...
 
 % Arithmetik ist komisch. 2 - 1 ist ein Term, keine Zahl!
 2 - 1 \= 1
+1 =< 2
+3 // 2 =:= 1
+
 
 % Um Terme auszuwerten braucht man "is"
 N1 is N - 1.
@@ -38,20 +41,53 @@ N1 is N - 1.
 
 ## Wichtige Funktionen
 ```prolog
-% prüft ob X in L
-member(X, L).
+% Negation
+not(X). % X ist ein prädikat
 
-% fügt A und B zu C zusammen.
-append(A, B, C).
+%% Listen:
 
-% Länge N einer Liste L
-length(L, N).
+member(X, L). % prüft ob X in L
+
+append(A, B, C). % fügt A und B zu C zusammen.
+
+delete(Xs, E, Zs). % Zs spiegelt Xs ohne alle vorkommen von E (die mit E unifizieren) wider.
+
+prefix(P, S). % Ist P Prefix von S
+
+length(L, N). % Hat Liste L genau N Elemente
+
+reverse(L, R). % Ist R das Reverse von L
+
+permutation(L, P). % Ist P eine Permutation von Liste L
+
+sum_list(L, N). % Ist L die Summe der Elemente von N
+
+max_list(L, M). % Ist M das größte Element in L
+
+is_set(L). % Besitzt die Liste L nur unique Elemente
+
+length(L, N). % Länge N einer Liste L
+
+last(L, E). % Ist E das letzte Element der Liste L
 
 % sowas wie append kann auch als Generator verwendet werden, sofern C instanziiert ist.
 append(A, B, C) % A und B gehen durch alle Teillisten von C
 
-% Negation
-not(X). % X ist ein prädikat
+% Beispieldefinition zu not(X) (impossible without \!):
+not(X) :- call(X),!,fail.
+not(X).
+
+% Beispiel: Quicksort in Haskell
+split(P,[H|A],B,[H|T]) :- H<P, !, split(P,A,B,T).
+split(P,A,[H|B],[H|T]) :- split(P,A,B,T).
+split(_,[],[],[]).
+
+qsort([],[]).
+qsort([P|L],S) :- 
+	split(P,X,Y,L), !, 
+	qsort(X,XS), !,
+	qsort(Y,YS), !,
+	append(XS,[P|YS],S), !.
 ```
 
 
