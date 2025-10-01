@@ -18,14 +18,28 @@
 - **Successor Function**
     - $succ\,c_2=c_3$
 - **Arithmetic Operations**
-    - **TODO**
-    - Addition: $plus$
-    - Multiplikation: $times$
-    - Potenzieren: $exp$
+    - $Plus$: $\lambda m.\,\lambda n.\,\lambda f.\,\lambda x. m f (n f x)$
+    - $Minus$: $\lambda m.\,\lambda n.\, n c_{pred} m$
+    - $isZero$: $\lambda n.\, n (\lambda x.\, c_{false}) c_{true}$
+    - $Times$: $\lambda m.\,\lambda n.\,\lambda f. m (n f)$ 
+    - $Exp$: $\lambda m.\,\lambda n.\, n m$
+    - $Pred$: $\lambda n.\,\lambda f.\,\lambda x.\, n (\lambda g.\,\lambda h. h (g f)) (\lambda n. x) (\lambda n.n)$
+    - $Succ$: $\lambda n.\,\lambda f.\,\lambda x. f (n f x)$
+    - $Less Than / Eq (leq)$: $\lambda m.\,\lambda n.\, c_{isZero} (c_{minus} m n)$
+    - $Greater Than (ge)$: $\lambda m.\,\lambda n.\, c_{isZero} (c_{minus} n m)$
 
 #### Boolean Values
 - $True$: $\ c_{true} = \lambda t.\ \lambda f.\ t$
 - $False$: $\ c_{false} = \lambda t.\ \lambda f.\,f$
+
+- $And$: $\ c_{and} = \lambda p.\ \lambda q.\ p q c_{false}$
+- $Or$: $\ c_{or} = \lambda p.\ \lambda q.\ p c_{true} q$
+- $Not$: $\ c_{not} = \lambda b.\ b c_{false} c_{true}
+
+#### Pairs
+- $Pair$: $\ c_{pair} = \lambda a.\ \lambda b.\ \lambda f.\ f a b$
+- $First$: $\ c_{fst} = \lambda p.\ p (\lambda a.\ \lambda b.\ a)$
+- $Second$: $\ c_{snd} = \lambda p.\ p (\lambda a.\ \lambda b.\ b)$
 
 ## Equivalences
 
@@ -75,6 +89,9 @@ For a recursive function $G = \lambda g.\ (\lambda x .\ g\ x)$ has the fixpoint 
 
 $Y = \lambda f.\,(\lambda x.\,f\,(x\,x))\,(\lambda x.\,f\,(x\,x))$ is called the recursion operator.
 $Y\ G$ is the fixpoint of $G$.
+
+#### Example
+$mod$ = $Y ( \lambda mod.\,\lambda n.\,\lambda k.\,(c_{ge} n k) (mod (c_{minus} n k) k) n
 
 ### Evaluation Strategies
 
