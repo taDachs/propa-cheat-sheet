@@ -211,7 +211,7 @@ A_0 + B_0 + C_0 & A_1 + B_1 + C_1  & A_2 + B_2 + C_2 \\
 \end{bmatrix}
 $$
 
-#### `MPI_allreduce`
+#### `MPI_Allreduce`
 
 ```cpp
 int MPI_Allreduce(const void *sendbuf, void *recvbuf, int count,
